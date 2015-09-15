@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/CustomerTemplate.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<table>
+				<tr>
+					<td>
+
+						<table>
+							<tr>
+								<td><h:outputLabel value="Code : " /></td>
+								<td><h:inputText value="#{searchController.param1}"
+										style="width: 306px; " /></td>
+							</tr>
+							<tr>
+								<td><h:outputLabel value="Name :" /></td>
+								<td><h:inputText value="#{searchController.param2}"
+										style="width: 248px; " /></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><h:commandButton value="Search"
+										action="#{searchController.doSearchActiveProducts}"
+										styleClass="submit" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h:commandButton value="Show all"
+										action="#{searchController.doListActiveProducts}"
+										styleClass="submit" /></td>
+							</tr>
+						</table>
+						<br></br><br></br>
+					</td>
+				</tr>
+
+				<tr><td>
+					<h:outputText value="No matching products found" rendered="#{empty searchController.productResult}" />
+					<h:dataTable value="#{searchController.productResult}" rendered="#{not empty searchController.productResult}"
+						var="product" border="1"   width="500px">
+						<h:column >
+						<f:facet name="header">
+								<h:outputText value="Products" />
+							</f:facet>
+							<b><h:outputText value="#{product.code}" /> &nbsp;&nbsp; - &nbsp;&nbsp;<h:outputText value="#{product.name}" /></b> 
+							<br></br>
+							<span style="color: green;"> (<h:outputText value="#{product.quantity}" /> in stock)</span>
+							<br></br>
+							<h:outputText value="#{product.description}" /> 
+							<br></br>
+							<br></br>
+							<h:outputText value="#{product.details}" /> 
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="" />
+							</f:facet>
+							<h:link outcome="CustomerAddProduct.xhtml?id=#{product.id}"  value="Add to Cart" />
+						</h:column>
+
+					</h:dataTable>
+					</td>
+				</tr>
+			</table>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition  template="/WEB-INF/templates/CustomerTemplate.xhtml">
+	<ui:define name="content">
+	<a href="CustomerSearchProducts.xhtml">Add another item</a>
+	<br></br>
+		<h:messages style="color:red;margin:8px;" />
+		<br></br>
+		<br></br>
+		<h:outputText value="Shoping cart is empty." rendered="#{empty shoppingCartController.order.items}" />
+	    <h:dataTable value="#{shoppingCartController.order.items}" rendered="#{not empty shoppingCartController.order.items}"
+			var="orderline" border="1">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Product Code" />
+				</f:facet>
+				<h:outputText value="#{orderline.item.code}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Name" />
+				</f:facet>
+				<h:outputText value="#{orderline.item.name}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Quantity" />
+				</f:facet>
+				<h:outputText value="#{orderline.quantity}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Cost" />
+				</f:facet>
+				<h:outputText value="#{orderline.price}" />
+			</h:column>
+				<h:column>
+				<f:facet name="header">
+					<h:outputText value="View" />
+				</f:facet>
+				<h:link outcome="CustomerAddProduct.xhtml?id=#{orderline.item.id}" value="Edit"/>
+			</h:column>			
+		</h:dataTable>
+		<br></br>
+		<hr></hr>
+		<br></br>
+		<h:form>
+		
+		<h:commandButton value="Checkout"
+				action="#{shoppingCartController.doCheckOut}" styleClass="submit" />
+				</h:form>
+	</ui:define>
+</ui:composition>
+</html>

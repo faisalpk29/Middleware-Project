@@ -1,0 +1,1 @@
+D:\Development\Servers\glassfish4\javadb\bin\startNetworkServer.bat -noSecurityManager

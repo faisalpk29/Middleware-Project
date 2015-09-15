@@ -1,0 +1,51 @@
+Mon Mar 31 14:30:15 CEST 2014 : Apache Derby Network Server - 10.9.1.0 - (1344872) started and ready to accept connections on port 1527
+----------------------------------------------------------------
+Mon Mar 31 14:31:24 CEST 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-0145-181e-5edd-00000abaf460 
+on database directory D:\Dropbox\Dev\Omazan\OmazanDB\OmazanDB  with class loader sun.misc.Launcher$AppClassLoader@6921dcac 
+Loaded from file:/D:/Development/Servers/glassfish4/javadb/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_51-b13
+user.dir=D:\Dropbox\Dev\Omazan\OmazanDB
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Mar 31 14:37:09 CEST 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance 8407dffa-0145-181e-5edd-00000abaf460 
+on database directory D:\Dropbox\Dev\Omazan\OmazanDB\OmazanMobileDB  with class loader sun.misc.Launcher$AppClassLoader@6921dcac 
+Loaded from file:/D:/Development/Servers/glassfish4/javadb/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_51-b13
+user.dir=D:\Dropbox\Dev\Omazan\OmazanDB
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Mar 31 14:43:17 CEST 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance 4816bff5-0145-181e-5edd-00000abaf460 
+on database directory D:\Dropbox\Dev\Omazan\OmazanDB\OmazanMobileDB1  with class loader sun.misc.Launcher$AppClassLoader@6921dcac 
+Loaded from file:/D:/Development/Servers/glassfish4/javadb/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_51-b13
+user.dir=D:\Dropbox\Dev\Omazan\OmazanDB
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Mar 31 14:43:39 CEST 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance 17201aeb-0145-181e-5edd-00000abaf460 
+on database directory D:\Dropbox\Dev\Omazan\OmazanDB\OmazanMobileDB2  with class loader sun.misc.Launcher$AppClassLoader@6921dcac 
+Loaded from file:/D:/Development/Servers/glassfish4/javadb/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_51-b13
+user.dir=D:\Dropbox\Dev\Omazan\OmazanDB
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Mar 31 15:19:38 CEST 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance 1d798d33-0145-181e-5edd-00000abaf460 
+on database directory D:\Dropbox\Dev\Omazan\OmazanDB\OmazanMobileDB3  with class loader sun.misc.Launcher$AppClassLoader@6921dcac 
+Loaded from file:/D:/Development/Servers/glassfish4/javadb/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_51-b13
+user.dir=D:\Dropbox\Dev\Omazan\OmazanDB
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/CustomerTemplate.xhtml">
+	<f:metadata>		
+		<f:viewAction action="#{customerController.doLoadLoggedInCustomer}" />
+	</f:metadata>
+
+	<ui:define name="content">
+		
+		<h3>Emails</h3>
+		<h:outputText value="No emails" rendered="#{empty customerController.customer.emails}" />
+		<h:dataTable value="#{customerController.customer.emails}"  rendered="#{not empty customerController.customer.emails}"
+			var="email" border="1">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Message" />
+				</f:facet>
+				<h:outputText value="#{email.message}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Date" />
+				</f:facet>
+				<h:outputText value="#{email.messageTime}" />
+			</h:column>							
+		</h:dataTable>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
+	<ui:define name="content">
+	<h:form>
+		<table>
+			<tr>
+				<td>
+				
+					<table>
+						<tr>
+							<td><h:outputLabel value="First Name : " /></td>
+							<td><h:inputText value="#{searchController.param1}"
+									style="width: 306px; " /></td>
+						</tr>
+						<tr>
+							<td><h:outputLabel value="Last Name :" /></td>
+							<td><h:inputText value="#{searchController.param2}"
+									style="width: 248px; " /></td>
+						</tr>
+						<tr>
+							<td><h:outputLabel value="Username :" /></td>
+							<td><h:inputText value="#{searchController.param3}"
+									style="width: 248px; " /></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><h:commandButton value="Search"
+									action="#{searchController.doSearchCustomers}"
+									styleClass="submit" /></td>
+						</tr>
+					</table>
+					
+				</td>
+			</tr>
+		
+			<tr>
+			
+				<td>
+				<h:outputText value="No customer found matching search" rendered="#{empty searchController.customersResult}" />
+				<h:dataTable value="#{searchController.customersResult}"  rendered="#{not empty searchController.customersResult}"
+						var="customer" border="1">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="First Name" />
+							</f:facet>
+							<h:outputText value="#{customer.firstName}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Last Name" />
+							</f:facet>
+							<h:outputText value="#{customer.lastName}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Username" />
+							</f:facet>
+							<h:outputText value="#{customer.username}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Active?" />
+							</f:facet>
+							<h:outputText value="#{customer.isActive}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="View" />
+							</f:facet>
+							<h:link outcome="EditCustomer.xhtml?id=#{customer.ID}"
+								value="Edit" />
+						</h:column>
+
+					</h:dataTable></td>
+			</tr>
+		</table>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

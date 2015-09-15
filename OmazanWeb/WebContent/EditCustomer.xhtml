@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
+	<f:metadata>
+		<f:viewParam name="id" value="#{customerController.customer.ID}" />
+		<f:viewAction action="#{customerController.doFindCustomerById}" />
+	</f:metadata>
+
+	<ui:define name="content">
+		<h1>Edit Customer</h1>
+		<h:form>
+			<table border="0">
+				<tr>
+					<td><h:outputLabel value="First Name : " /></td>
+					<td><h:inputText
+							value="#{customerController.customer.firstName}"
+							style="width: 255px; " /> <h:inputHidden
+							value="#{customerController.customer.ID}" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Last name :" /></td>
+					<td><h:inputText
+							value="#{customerController.customer.lastName}"
+							style="width: 254px; " /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Username : " /></td>
+					<td><h:inputText
+							value="#{customerController.customer.username}"
+							style="width: 255px; " /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Password :" /></td>
+					<td><h:inputText
+							value="#{customerController.customer.password}"
+							style="width: 253px; " /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Email : " /></td>
+					<td><h:inputText value="#{customerController.customer.email}"
+							style="width: 306px; " /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Phone # :" /></td>
+					<td><h:inputText value="#{customerController.customer.phone}"
+							style="width: 248px; " /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Street 1 : " /></td>
+					<td><h:inputText
+							value="#{customerController.customer.addr_Street1}"
+							style="width: 532px; " /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Street 2 :" /></td>
+					<td><h:inputText
+							value="#{customerController.customer.addr_Street2}"
+							style="width: 534px; " /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="City : " /></td>
+					<td><h:inputText
+							value="#{customerController.customer.addr_City}"
+							style="width: 243px; " /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="State :" /></td>
+					<td><h:inputText
+							value="#{customerController.customer.addr_State}"
+							style="width: 245px; " /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Zipcode : " /></td>
+					<td><h:inputText
+							value="#{customerController.customer.addr_Zipcode}"
+							style="width: 245px; " /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Country :" /></td>
+					<td><h:inputText
+							value="#{customerController.customer.addr_Country}"
+							style="width: 244px; " /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Is Active :" /></td>
+					<td><h:selectBooleanCheckbox
+							value="#{customerController.customer.isActive}" /></td>
+				</tr>
+			</table>
+			<h:commandButton value="Save customer"
+				action="#{customerController.doSaveCustomer}" styleClass="submit" />
+		</h:form>
+		<hr />
+	</ui:define>
+</ui:composition>
+</html>

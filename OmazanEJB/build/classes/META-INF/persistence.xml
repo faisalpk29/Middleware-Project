@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="OmazanPU">
+		<jta-data-source>jdbc/OmazanDS</jta-data-source>
+		<class>com.omazan.Entities.Customer</class>
+		<class>com.omazan.Entities.Product</class>
+		<class>com.omazan.Entities.Order</class>
+		<class>com.omazan.Entities.OrderLine</class>
+		<class>com.omazan.Entities.ShipmentLog</class>
+		<class>com.omazan.Entities.Email</class>
+		<class>com.omazan.Entities.Notification</class>
+		<class>com.omazan.Entities.Truck</class>
+		<properties>
+			<property name="eclipselink.target-database" value="Derby"/>
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+			<property name="eclipselink.ddl-generation.output-mode" value="sql-script"/>
+		</properties>
+	</persistence-unit>
+</persistence>

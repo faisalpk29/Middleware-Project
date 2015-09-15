@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
+	
+	<ui:define name="content">
+		<h1>Add a new product</h1>
+		<br></br>
+		 <h:messages style="color:red;margin:8px;"  />
+		<br></br>
+		<h:form>
+			<table border="0">
+				<tr>
+					<td><h:outputLabel value="Code : " /></td>
+					<td><h:inputText
+							value="#{productController.product.code}"
+							style="width: 255px; " /> </td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Name :" /></td>
+					<td><h:inputText
+							value="#{productController.product.name}"
+							style="width: 254px; " /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Detail : " /></td>
+					<td><h:inputTextarea
+							value="#{productController.product.details}"
+							style="width: 746px; height: 84px; " /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Description :" /></td>
+					<td><h:inputTextarea
+							value="#{productController.product.description}"
+							style="width: 868px; height: 145px; " /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Price : " /></td>
+					<td><h:inputText value="#{productController.product.price}"
+							style="width: 306px; " /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Quantity :" /></td>
+					<td><h:inputText value="#{productController.product.quantity}"
+							style="width: 248px; " /></td>
+				</tr>				
+				<tr>
+					<td><h:outputLabel value="Is Active :" /></td>
+					<td><h:selectBooleanCheckbox
+							value="#{productController.product.isActive}" /></td>
+				</tr>
+			</table>
+			<h:commandButton value="Add product"
+				action="#{productController.doAddProduct}" styleClass="submit" />
+		</h:form>
+		<hr />
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
+	<f:metadata>
+		<f:viewParam name="id" value="#{orderController.order.id}" />
+		<f:viewAction action="#{orderController.doFindOrderById}" />
+	</f:metadata>
+
+	<ui:define name="content">
+		<h1>Order details</h1>
+		
+		<table>
+		<tr><td>Order Id</td><td><h:outputText value="#{orderController.order.id}" /></td></tr>
+		<tr><td>Order Date</td><td><h:outputText value="#{orderController.order.orderDate}" /></td></tr>
+		<tr><td>Order Cost</td><td><h:outputText value="#{orderController.order.price}" /></td></tr>
+		<tr><td>Delivery Status</td><td><h:outputText value="#{orderController.order.deleiveryStatus}" /></td></tr>
+		
+		</table>
+		<h3>Items</h3>
+		<h:dataTable value="#{orderController.order.items}"
+			var="orderline" border="1">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Product Code" />
+				</f:facet>
+				<h:outputText value="#{orderline.item.code}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Name" />
+				</f:facet>
+				<h:outputText value="#{orderline.item.name}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Quantity" />
+				</f:facet>
+				<h:outputText value="#{orderline.quantity}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Cost" />
+				</f:facet>
+				<h:outputText value="#{orderline.price}" />
+			</h:column>
+							
+		</h:dataTable>
+		<br></br><br></br><br></br>
+		
+		<h3>Shipment Log</h3>
+		<h:outputText value="No shipment logs" rendered="#{empty orderController.order.shipmentLog}" />
+		<h:dataTable value="#{orderController.order.shipmentLog}"  rendered="#{not empty orderController.order.shipmentLog}"		
+			var="log" border="1">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Message" />
+				</f:facet>
+				<h:outputText value="#{log.status}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Date" />
+				</f:facet>
+				<h:outputText value="#{log.logTime}" />
+			</h:column>
+							
+		</h:dataTable>
+		
+		<br></br><br></br><br></br>
+		
+		<h3>Delivery Notifcations</h3>
+		<h:outputText value="No notifications" rendered="#{empty orderController.order.notifications}" />
+		<h:dataTable value="#{orderController.order.notifications}"  rendered="#{not empty orderController.order.notifications}"
+			var="notification" border="1">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Message" />
+				</f:facet>
+				<h:outputText value="#{notification.message}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Date" />
+				</f:facet>
+				<h:outputText value="#{notification.messageTime}" />
+			</h:column>							
+		</h:dataTable>
+	</ui:define>
+</ui:composition>
+</html>

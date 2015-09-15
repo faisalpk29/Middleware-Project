@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/CustomerTemplate.xhtml">
+	<f:metadata>
+		<f:viewParam name="id"
+			value="#{shoppingCartController.orderline.item.id}" />
+		<f:viewAction action="#{shoppingCartController.doInitializeOrderLine}" />
+	</f:metadata>
+
+	<ui:define name="content">
+		<h3>Add product to shopping cart</h3>
+		<br></br>
+		<h:messages style="color:red;margin:8px;" />
+		<br></br>
+		<h:form>
+			<table border="0" style="vertical-align: top;">
+				<tr>
+					<td width="300px">Product Information</td>
+					<td>Quantity</td>
+					<td><br></br><br></br></td>
+				</tr>
+				<tr>
+
+					<td><b><h:outputText
+								value="#{shoppingCartController.orderline.item.code}"
+								style="width: 255px; " /> &nbsp;&nbsp;-&nbsp;&nbsp;<h:outputText
+								value="#{shoppingCartController.orderline.item.name}"
+								style="width: 254px; " /> </b> <h:inputHidden
+							value="#{shoppingCartController.orderline.item.id}" /> <br></br>
+						<br></br> 
+					<span style="color:green;">	(<h:outputText value="#{shoppingCartController.orderline.item.quantity}" /> in stock)
+					&nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp; <b>Price : <h:outputText value="#{shoppingCartController.orderline.item.price}" /></b>
+					</span>
+						<br></br>
+						<br></br><h:outputText
+							value="#{shoppingCartController.orderline.item.description}"
+							style="width: 400px; height: 65px; " /> <br></br> <br></br> <h:outputText
+							value="#{shoppingCartController.orderline.item.details}"
+							style="width: 400px; height: 224px; " /></td>
+					<td style="vertical-align: top;"><h:inputText
+							value="#{shoppingCartController.orderline.quantity}"
+							style="width: 100px; " /></td>
+					<td style="vertical-align: top;"><h:commandButton
+							value="Add to Cart"
+							action="#{shoppingCartController.doAddOrderLine}"
+							styleClass="submit" /></td>
+				</tr>
+			</table>
+		</h:form>
+		<hr />
+	</ui:define>
+</ui:composition>
+</html>
